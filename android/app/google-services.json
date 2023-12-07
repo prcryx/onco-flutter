@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "366900774592",
+    "project_id": "onco-connect-785f9",
+    "storage_bucket": "onco-connect-785f9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366900774592:android:5e4b2b94ff6dd5e8c7cf25",
+        "android_client_info": {
+          "package_name": "com.application.onco.onco_connect"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuP9dMLd4WmT2DRReeCiEgeJ3n2ZL8d6M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
