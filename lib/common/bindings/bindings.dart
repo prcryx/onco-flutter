@@ -40,7 +40,7 @@ class InitialBindings extends Bindings {
     Get.put<AuthController>(
       AuthController(
         authRepo: Get.find<AuthRepository>(),
-        connectivityService: Get.find<IConnectivityService>(),
+        // connectivityService: Get.find<IConnectivityService>(),
         snackbarService: Get.find<ICustomSnackbarService>(),
         loaderService: Get.find<CustomLoaderService>(),
       ),

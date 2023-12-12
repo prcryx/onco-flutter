@@ -1,13 +1,13 @@
 import 'package:get/get.dart';
 import 'package:onco_connect/common/services/custom_snackbar_service.dart';
+import 'package:onco_connect/common/services/firebase_services.dart';
 import 'package:onco_connect/common/services/loader_service.dart';
-import 'package:onco_connect/domain/repositories/questionnaire_repository.dart';
-import 'package:onco_connect/presentation/app/dashboard/controller/dashboard_controller.dart';
-import 'package:onco_connect/presentation/app/dashboard/pages/home/controllers/home_controller.dart';
 
-import '../../../../common/services/firebase_services.dart';
+import '../../../../domain/repositories/questionnaire_repository.dart';
+import 'add_questionnaire_controller.dart';
+import 'questionnaire_controller.dart';
 
-class DashboardBindings extends Bindings {
+class QuestionnaireBindings extends Bindings {
   @override
   void dependencies() {
     _repositories();
@@ -23,9 +23,15 @@ class DashboardBindings extends Bindings {
   }
 
   void _controllers() {
-    Get.put<DashboardController>(DashboardController());
-    Get.put<HomeController>(
-      HomeController(
+    Get.put<QuestionnaireController>(
+      QuestionnaireController(
+        repo: Get.find<QuestionnaireRepository>(),
+        loaderService: Get.find<CustomLoaderService>(),
+        snackbarService: Get.find<ICustomSnackbarService>(),
+      ),
+    );
+    Get.put<AddQuestionnaireController>(
+      AddQuestionnaireController(
         repo: Get.find<QuestionnaireRepository>(),
         loaderService: Get.find<CustomLoaderService>(),
         snackbarService: Get.find<ICustomSnackbarService>(),

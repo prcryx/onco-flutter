@@ -4,11 +4,11 @@ import 'package:onco_connect/presentation/theme/color_theme/custom_color_theme.d
 import 'package:onco_connect/presentation/theme/text_theme/custom_text_theme.dart';
 
 class DrawerItem extends StatelessWidget {
-  final IconData icon;
+  final IconData? icon;                                                                     
   final String title;
   final VoidCallback onTap;
   const DrawerItem({
-    required this.icon,
+    this.icon,
     required this.title,
     required this.onTap,
     super.key,
@@ -17,8 +17,10 @@ class DrawerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         Container(
+          margin: const EdgeInsets.only(bottom: LayoutConstants.dimen_4),
           padding: const EdgeInsets.only(
             left: LayoutConstants.dimen_8,
             right: LayoutConstants.dimen_8,
@@ -37,7 +39,9 @@ class DrawerItem extends StatelessWidget {
             child: ListTile(
               onTap: onTap,
               visualDensity: VisualDensity.compact,
-              leading: Icon(icon),
+              leading: icon != null
+                  ? Icon(icon)
+                  : const Icon(Icons.add_circle_outline_outlined),
               title: Text(
                 title,
                 textAlign: TextAlign.left,
@@ -48,6 +52,5 @@ class DrawerItem extends StatelessWidget {
         ),
       ],
     );
-
   }
 }

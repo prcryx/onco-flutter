@@ -12,6 +12,12 @@ CustomTextTheme textTheme = CustomTextTheme(
   headingLr: DefaultTextTheme.headingLr.copyWith(
     color: AppColor.raven,
   ),
+  headingLm: DefaultTextTheme.headingLm.copyWith(
+    color: AppColor.raven,
+  ),
+  headingLb: DefaultTextTheme.headingLb.copyWith(
+    color: AppColor.raven,
+  ),
   bodyLr: DefaultTextTheme.bodyLr.copyWith(
     color: AppColor.raven,
   ),
@@ -23,6 +29,9 @@ CustomTextTheme textTheme = CustomTextTheme(
   ),
   bodyLmOnPrimary: DefaultTextTheme.bodyLm.copyWith(
     color: AppColor.snowDrift,
+  ),
+  bodyLmPrimary: DefaultTextTheme.bodyLm.copyWith(
+    color: AppColor.copper,
   ),
   bodyLb: DefaultTextTheme.bodyLb.copyWith(
     color: AppColor.raven,

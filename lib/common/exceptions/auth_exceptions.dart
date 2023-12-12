@@ -1,4 +1,4 @@
-import 'package:onco_connect/common/exceptions/user_exception.dart';
+import 'package:onco_connect/common/exceptions/base_app_exception.dart';
 
 class UserAuthException extends AppException {
   Object cause;

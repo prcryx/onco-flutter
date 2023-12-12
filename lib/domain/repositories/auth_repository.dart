@@ -2,9 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:onco_connect/common/constants/collection_constants.dart';
+import 'package:onco_connect/common/constants/document_constants.dart';
 import 'package:onco_connect/common/exceptions/auth_exceptions.dart';
 import 'package:onco_connect/common/services/firebase_services.dart';
+import 'package:onco_connect/domain/entities/meta/meta_doc.dart';
 import 'package:onco_connect/domain/entities/user_entity.dart';
+
+import '../../common/exceptions/data_exception.dart';
 
 abstract class AuthRepository {
   Future<UserEntity?> fetchUser();
@@ -20,18 +24,18 @@ abstract class AuthRepository {
     required String password,
   });
 
+  Future<MetaDoc> getMetaData();
+  Future<UserMetaDoc> getUserMetaData();
   String? getUserId();
 }
 
 class AuthRepositoryImpl extends GetxService implements AuthRepository {
   final FirebaseFirestore _firestore;
   final FirebaseAuth _auth;
-  final IFirebaseServices services;
   AuthRepositoryImpl({
     required IFirebaseServices firebaseServices,
   })  : _firestore = firebaseServices.firestore,
-        _auth = firebaseServices.auth,
-        services = firebaseServices;
+        _auth = firebaseServices.auth;
 
   @override
   Future<UserEntity?> fetchUser() async {
@@ -127,6 +131,52 @@ class AuthRepositoryImpl extends GetxService implements AuthRepository {
       } else {
         throw UserAuthException(e.code.toString());
       }
+    }
+  }
+
+  @override
+  Future<MetaDoc> getMetaData() async {
+    try {
+      CollectionReference<MetaDoc> metaRef = _firestore
+          .collection(CollectionConstants.metaRef)
+          .withConverter<MetaDoc>(
+            fromFirestore: (snapshot, _) => MetaDoc.fromJson(snapshot.data()!),
+            toFirestore: (model, _) => model.toJson(),
+          );
+      DocumentSnapshot<MetaDoc> snapshot =
+          await metaRef.doc(DocumentConstants.metaDoc).get();
+      if (snapshot.exists) {
+        return snapshot.data()!;
+      } else {
+        throw NoAppMetaDataException();
+      }
+    } on FirebaseException catch (e) {
+      throw DataFetchException(e.message, e.stackTrace);
+    }
+  }
+
+  @override
+  Future<UserMetaDoc> getUserMetaData() async {
+    try {
+      CollectionReference userRef =
+          _firestore.collection(CollectionConstants.user);
+      CollectionReference<UserMetaDoc> userMetaRef = userRef
+          .doc(_auth.currentUser!.uid)
+          .collection(CollectionConstants.userMetaRef)
+          .withConverter<UserMetaDoc>(
+            fromFirestore: (snapshot, _) =>
+                UserMetaDoc.fromJson(snapshot.data()!),
+            toFirestore: (model, _) => model.toJson(),
+          );
+      DocumentSnapshot<UserMetaDoc> snapshot =
+          await userMetaRef.doc(DocumentConstants.metaQuestionnaireDoc).get();
+      if (snapshot.exists) {
+        return snapshot.data()!;
+      } else {
+        throw NoUserMetaDataException();
+      }
+    } on FirebaseException catch (e) {
+      throw DataFetchException(e.message, e.stackTrace);
     }
   }
 }

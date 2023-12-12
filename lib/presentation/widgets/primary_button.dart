@@ -8,12 +8,14 @@ class PrimaryButton extends StatefulWidget {
   final String label;
   final Color? backgroundColor;
   final TextStyle? labelStyle;
+  final Widget? suffixIcon;
   const PrimaryButton({
     super.key,
     required this.label,
     this.onTap,
     this.backgroundColor,
     this.labelStyle,
+    this.suffixIcon,
   });
 
   @override
@@ -47,14 +49,29 @@ class _PrimaryButtonState extends State<PrimaryButton> {
                       BorderRadius.circular(LayoutConstants.dimen_112),
                 ),
               ),
-              child: Center(
-                child: Text(
-                  widget.label,
-                  style: widget.labelStyle ??
-                      Theme.of(context)
-                          .extension<CustomTextTheme>()!
-                          .bodyLrOnPrimary,
-                ),
+              child: Stack(
+                alignment: AlignmentDirectional.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        widget.label,
+                        style: widget.labelStyle ??
+                            Theme.of(context)
+                                .extension<CustomTextTheme>()!
+                                .bodyLrOnPrimary,
+                      ),
+                    ],
+                  ),
+                  widget.suffixIcon != null
+                      ? Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [widget.suffixIcon!],
+                        )
+                      : const SizedBox()
+                ],
               ),
             ),
           ),

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:onco_connect/domain/entities/meta/meta_doc.dart';
+import 'package:onco_connect/presentation/app/auth/controller/auth_controller.dart';
 import 'package:onco_connect/presentation/app/dashboard/controller/dashboard_controller.dart';
 import 'package:onco_connect/presentation/app/dashboard/pages/articles/articles_screen.dart';
 import 'package:onco_connect/presentation/app/dashboard/pages/dairy/dairy_screen.dart';
+import 'package:onco_connect/presentation/app/dashboard/pages/home/controllers/home_controller.dart';
 import 'package:onco_connect/presentation/app/dashboard/pages/service/services.dart';
 import 'package:onco_connect/presentation/app/dashboard/pages/tracks/tracks.dart';
 import 'package:onco_connect/presentation/theme/color_theme/custom_color_theme.dart';
@@ -27,10 +30,14 @@ class DashboardScreen extends StatefulWidget {
 
 class _DashboardScreenState extends State<DashboardScreen> {
   late DashboardController dashboardController;
-
+  late HomeController homeController;
+  late AuthController authController;
   @override
   void initState() {
     dashboardController = Get.find<DashboardController>();
+    homeController = Get.find<HomeController>();
+    authController = Get.find<AuthController>();
+
     super.initState();
   }
 
@@ -53,7 +60,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   Widget _buildPages() => GetBuilder<DashboardController>(
       init: Get.find<DashboardController>(),
-      builder: (IDashboardController controller) {
+      initState: (state) {
+        // homeController.fetchFirstAssessement(
+        //     authController.userMetaData.value.firstQuestionId ??
+        //         MetaConstants.questionId);
+      },
+      builder: (DashboardController controller) {
         return PageView(
           physics: const NeverScrollableScrollPhysics(),
           controller: controller.pageController,

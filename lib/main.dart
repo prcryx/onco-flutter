@@ -64,7 +64,9 @@ class _MyAppState extends State<MyApp> {
         unknownRoute: AppRoutes.unknownRoute(),
         getPages: AppRoutes.appRoutes(),
         builder: (context, child) {
-          return SafeArea(child: LoaderWidget(child: child!));
+          return LoaderWidget(
+            child: child!,
+          );
         },
       );
 }

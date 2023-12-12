@@ -13,9 +13,17 @@ class DefaultTextTheme {
     fontSize: LayoutConstants.dimen_24,
     fontWeight: FontWeight.w500,
   );
-  static final TextStyle headingLr = GoogleFonts.roboto().copyWith(
-    fontSize: LayoutConstants.dimen_24,
+  static final TextStyle headingLr = GoogleFonts.playfairDisplay().copyWith(
+    fontSize: LayoutConstants.dimen_18,
     fontWeight: FontWeight.w400,
+  );
+  static final TextStyle headingLm = GoogleFonts.playfairDisplay().copyWith(
+    fontSize: LayoutConstants.dimen_18,
+    fontWeight: FontWeight.w500,
+  );
+  static final TextStyle headingLb = GoogleFonts.playfairDisplay().copyWith(
+    fontSize: LayoutConstants.dimen_18,
+    fontWeight: FontWeight.w700,
   );
   static final TextStyle bodyLr = GoogleFonts.roboto().copyWith(
     fontSize: LayoutConstants.dimen_16,

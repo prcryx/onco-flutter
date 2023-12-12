@@ -15,7 +15,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   User? user;
-  late IAuthController authController;
+  late AuthController authController;
   @override
   void initState() {
     super.initState();
@@ -32,6 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
     } else {
       authController.fetchUser();
       if (authController.getUserId() != null) {
+        authController.loadMetaData();
         return RouteName.dashboardScreen;
       } else {
         return RouteName.authScreen;
@@ -41,17 +42,11 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<AuthController>(
-      init: Get.find<AuthController>(),
-      builder: (IAuthController controller) {
-        return Scaffold(
-          backgroundColor:
-              Theme.of(context).extension<CustomColorTheme>()!.loginBg,
-          body: Center(
-            child: Image.asset(PngConstants.appLogo),
-          ),
-        );
-      },
+    return Scaffold(
+      backgroundColor: Theme.of(context).extension<CustomColorTheme>()!.loginBg,
+      body: Center(
+        child: Image.asset(PngConstants.appLogo),
+      ),
     );
   }
 }

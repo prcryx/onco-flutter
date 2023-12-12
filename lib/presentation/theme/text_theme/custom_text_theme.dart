@@ -5,12 +5,15 @@ class CustomTextTheme extends ThemeExtension<CustomTextTheme> {
     this.displayLr,
     this.displayMm,
     this.headingLr,
+    this.headingLm,
+    this.headingLb,
     this.bodyLr,
     this.bodyLrOnPrimary,
     this.bodyLm,
     this.bodyLmOnPrimary,
     this.bodyLb,
     this.bodyLbOnPrimary,
+    this.bodyLmPrimary,
     this.bodyLbDisabled,
     this.bodyMr,
     this.bodyMrHint,
@@ -25,12 +28,15 @@ class CustomTextTheme extends ThemeExtension<CustomTextTheme> {
   final TextStyle? displayLr;
   final TextStyle? displayMm;
   final TextStyle? headingLr;
+  final TextStyle? headingLm;
+  final TextStyle? headingLb;
   final TextStyle? bodyLr;
   final TextStyle? bodyLrOnPrimary;
   final TextStyle? bodyLm;
   final TextStyle? bodyLmOnPrimary;
   final TextStyle? bodyLb;
   final TextStyle? bodyLbOnPrimary;
+  final TextStyle? bodyLmPrimary;
   final TextStyle? bodyLbDisabled;
   final TextStyle? bodyMr;
   final TextStyle? bodyMrHint;
@@ -47,12 +53,15 @@ class CustomTextTheme extends ThemeExtension<CustomTextTheme> {
     TextStyle? displayLr,
     TextStyle? displayMm,
     TextStyle? headingLr,
+    TextStyle? headingLm,
+    TextStyle? headingLb,
     TextStyle? bodyLr,
     TextStyle? bodyLrOnPrimary,
     TextStyle? bodyLm,
     TextStyle? bodyLmOnPrimary,
     TextStyle? bodyLb,
     TextStyle? bodyLbOnPrimary,
+    TextStyle? bodyLmPrimary,
     TextStyle? bodyLbDisabled,
     TextStyle? bodyMr,
     TextStyle? bodyMrHint,
@@ -68,12 +77,15 @@ class CustomTextTheme extends ThemeExtension<CustomTextTheme> {
       displayLr: displayLr,
       displayMm: displayMm,
       headingLr: headingLr,
+      headingLm: headingLm,
+      headingLb: headingLb,
       bodyLr: bodyLr,
       bodyLrOnPrimary: bodyLrOnPrimary,
       bodyLm: bodyLm,
       bodyLmOnPrimary: bodyLmOnPrimary,
       bodyLb: bodyLb,
       bodyLbOnPrimary: bodyLbOnPrimary,
+      bodyLmPrimary: bodyLmPrimary,
       bodyLbDisabled: bodyLbDisabled,
       bodyMr: bodyMr,
       bodyMrHint: bodyMrHint,
@@ -97,6 +109,8 @@ class CustomTextTheme extends ThemeExtension<CustomTextTheme> {
       displayLr: TextStyle.lerp(displayLr, other.displayLr, t),
       displayMm: TextStyle.lerp(displayMm, other.displayMm, t),
       headingLr: TextStyle.lerp(headingLr, other.headingLr, t),
+      headingLm: TextStyle.lerp(headingLm, other.headingLm, t),
+      headingLb: TextStyle.lerp(headingLb, other.headingLb, t),
       bodyLr: TextStyle.lerp(bodyLr, other.bodyLr, t),
       bodyLrOnPrimary:
           TextStyle.lerp(bodyLrOnPrimary, other.bodyLrOnPrimary, t),

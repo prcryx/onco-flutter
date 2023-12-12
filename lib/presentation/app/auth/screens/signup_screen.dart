@@ -20,7 +20,7 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   final formKey = GlobalKey<FormState>();
-  late IAuthController authController;
+  late AuthController authController;
 
   late ValueNotifier<String> usernameNotifier;
   late ValueNotifier<String> emailNotifier;

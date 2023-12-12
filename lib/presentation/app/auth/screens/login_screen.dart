@@ -19,7 +19,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final formKey = GlobalKey<FormState>();
-  late IAuthController authController;
+  late AuthController authController;
 
   late ValueNotifier<String> emailNotifier;
   late ValueNotifier<String> passwordNotifier;
