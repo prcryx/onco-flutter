@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:onco_connect/domain/entities/meta/meta_doc.dart';
 import 'package:onco_connect/presentation/app/auth/controller/auth_controller.dart';
 import 'package:onco_connect/presentation/app/dashboard/controller/dashboard_controller.dart';
 import 'package:onco_connect/presentation/app/dashboard/pages/articles/articles_screen.dart';

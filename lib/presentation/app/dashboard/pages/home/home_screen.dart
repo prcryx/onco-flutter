@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:onco_connect/common/constants/layout_constant.dart';
 import 'package:onco_connect/common/utils/temp_utils.dart';
-import 'package:onco_connect/domain/entities/meta/meta_doc.dart';
 import 'package:onco_connect/presentation/app/auth/controller/auth_controller.dart';
 import 'package:onco_connect/presentation/app/dashboard/pages/home/controllers/home_controller.dart';
 import 'package:onco_connect/presentation/app/dashboard/pages/home/home_constants.dart';

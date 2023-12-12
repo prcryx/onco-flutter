@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:onco_connect/common/constants/layout_constant.dart';
-import 'package:onco_connect/common/utils/step_storage.dart';
 import 'package:onco_connect/domain/entities/questionnaire_entity.dart';
 import 'package:onco_connect/presentation/app/dashboard/pages/home/home_constants.dart';
 import 'package:onco_connect/presentation/app/questionnaire/controllers/questionnaire_controller.dart';
