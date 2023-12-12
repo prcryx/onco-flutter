@@ -1,16 +1,44 @@
-# onco_connect
+# onco_flutter
 
-A new Flutter project.
+A Demo Project built using GetX and Firebase and adheres to mmvm pattern.
 
-## Getting Started
+### project structure
 
-This project is a starting point for a Flutter application.
+```bash
 
-A few resources to get you started if this is your first Flutter project:
+lib
+│   ├───common
+│   │   ├───bindings
+│   │   ├───constants
+│   │   ├───exceptions
+│   │   ├───services
+│   │   └───utils
+│   ├───domain
+│   │   ├───entities
+│   │   │   └───meta
+│   │   └───repositories
+│   └───presentation
+│       ├───app
+│       │   ├───auth
+│       │   │   ├───controller
+│       │   │   └───screens
+│       │   ├───dashboard
+│       │   │   ├───controller
+│       │   │   └───pages
+│       │   │       ├───articles
+│       │   │       ├───dairy
+│       │   │       ├───home
+│       │   │       │   ├───controllers
+│       │   │       │   └───widgets
+│       │   │       ├───service
+│       │   │       └───tracks
+│       │   ├───launch
+│       │   ├───questionnaire
+│       │   │   └───controllers
+│       │   └───routes
+│       ├───theme
+│       │   ├───color_theme
+│       │   └───text_theme
+│       └───widgets
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
